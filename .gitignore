@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+**/.DS_Store
+#kicad 
+*.lck
+*.bak
+*.tmp
+~*
+_autosave-*
+*.kicad_sch-bak
+*.kicad_pcb-bak
+*.kicad_pro-bak
+*.rescue.lib
+*.rescue.dcm
+
+*.gbr
+*.gbr.zip
+*.drl
+*.xln
+*.pos
+*.gko
+*.gm1
+# PlatformIO (firmware/)
+**/.pio/
+**/.vscode/
+**/.pioenvs/
+**/.piolibdeps/
+firmware/.pio/
+firmware/include/secrets.h
