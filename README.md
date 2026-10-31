@@ -74,37 +74,5 @@ The major system components perform the following functions:
 
 ---
 
-## 4. Block Diagram
 
-The following diagram illustrates the overall electronic architecture of the spin coater.
 
-```mermaid
-flowchart TB
-    PSU["12V Power Supply (SMPS)"]
-    ESC["ESC (30A)"]
-    MOTOR["A2212 BLDC Motor"]
-    ESP["ESP32 Controller"]
-    BUCK["DC-DC Buck Converter"]
-    DISPLAY["OLED Display"]
-    IR["IR Sensor"]
-    KEYPAD["4×4 Matrix Keypad"]
-
-    PSU --> ESC
-    ESC --> MOTOR
-
-    PSU --> BUCK
-    BUCK --> ESP
-
-    ESP --> DISPLAY
-    IR --> ESP
-    KEYPAD --> ESP
-
-    style PSU fill:#e8f0fe,stroke:#333
-    style ESC fill:#e8f0fe,stroke:#333
-    style MOTOR fill:#e8f0fe,stroke:#333
-    style ESP fill:#d9ead3,stroke:#333
-```
-
-**Fig. 1.1: Block diagram of the spin coater**
-
----
