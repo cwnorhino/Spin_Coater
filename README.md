@@ -1,4 +1,6 @@
-Spin coating is a common technique for applying thin films to substrates. When a solution of a material and a solvent is spun at high speeds using a spin coater, the centripetal force and the surface tension of the liquid together create an even covering. After any remaining solvent has evaporated, spin coating results in a thin film ranging from a few nanometres to a few microns in thickness.
+Spin coating is a way of making very thin, even films on a flat surface. A few drops of liquid are placed on a substrate, which is then spun at high speed.
+The centrifugal force pushes the liquid outward and spreads it into a thin layer. 
+The centripetal force, helped by the liquid’s  surface tension, holds it on the surface. Once the solvent dries, a smooth film only nanometres to a few microns thick is left.
 
 ## 1. Components and Cost
 
@@ -44,13 +46,12 @@ After spinning, a thin layer remains; its final properties depend on the materia
 
 ### 3.1 Working Principle
 
-1. A substrate is placed and secured on the rotating chuck.
+1. Place the substrate on the rotating chuck and secure it.
 2. A small quantity of coating liquid is dispensed onto the substrate.
 3. The BLDC motor rotates the chuck at the programmed speed.
 4. Centrifugal effects cause the liquid to spread radially across the substrate.
 5. Excess liquid is expelled from the edges.
 6. After the spinning process, a thin coating remains on the substrate.
-
 ---
 
 ### 3.2 Electronic Control System
@@ -64,11 +65,11 @@ The major system components perform the following functions:
 | Component            | Function                                                      |
 | -------------------- | ------------------------------------------------------------- |
 | ESP32                | Main controller for the spin coater                           |
-| BLDC Motor           | Provides rotational motion                                    |
+| BLDC Motor           | Rotational drive unit with an appropriate RPM                                |
 | ESC                  | Controls the BLDC motor                                       |
 | SMPS                 | Supplies DC power to the system                               |
 | DC-DC Buck Converter | Provides regulated voltage for the controller and peripherals |
-| OLED Display         | Displays operating information                                |
+| OLED Display         | Displays operating information (the rpm & its staus etc )                               |
 | 4×4 Matrix Keypad    | Allows user input and parameter selection                     |
 | IR Sensor            | Detects rotational speed for RPM feedback                     |
 
