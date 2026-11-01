@@ -1,8 +1,21 @@
 Spin coating is a way of making very thin, even films on a flat surface. A few drops of liquid are placed on a substrate, which is then spun at high speed.
 The centrifugal force pushes the liquid outward and spreads it into a thin layer. 
 The centripetal force, helped by the liquid’s  surface tension, holds it on the surface. Once the solvent dries, a smooth film only nanometres to a few microns thick is left.
+---
 
-## 1. Components and Cost
+## 1. Introduction
+
+Thin-film deposition is important in electronics, optics, materials science, and laboratory research. Spin coating is a comparatively simple method for producing thin films from liquid solutions.
+
+A small amount of coating liquid is placed on a substrate, which is then rotated. The liquid spreads outward and excess material is expelled from the edge. Film thickness and uniformity depend on factors such as rotational speed, acceleration, spin duration, liquid viscosity, solvent evaporation, dispense volume, and substrate condition.
+
+Commercial spin coaters can be expensive or inaccessible for student projects. The objective of this project is to build a compact, low-cost prototype using readily available electronics and fabricated mechanical parts. An ESP32 provides a flexible platform for controlling operating sequences and can support a display, buttons, speed feedback, and programmable recipes.
+
+A key design challenge is that the motor, ESC, shaft, chuck, and power supply must be selected as a system. High rotational speed makes shaft alignment, rotor balance, secure mounting, and containment especially important. The prototype therefore requires gradual testing and must not be operated at high speed until the shaft and chuck are mechanically secure and the assembly is guarded.
+
+---
+
+## 2. Components and Cost
 
 The following components were used to develop the prototype spin coater.
 
@@ -21,18 +34,6 @@ The following components were used to develop the prototype spin coater.
 |   11    | Electrical Wire                                   |    30 per metre |
 |   12    | Jumper Wires                                      |              60 |
 |   13    | M3 × 0.5 Screws                                   |               5 |
-
----
-
-## 2. Introduction
-
-Thin-film deposition is important in electronics, optics, materials science, and laboratory research. Spin coating is a comparatively simple method for producing thin films from liquid solutions.
-
-A small amount of coating liquid is placed on a substrate, which is then rotated. The liquid spreads outward and excess material is expelled from the edge. Film thickness and uniformity depend on factors such as rotational speed, acceleration, spin duration, liquid viscosity, solvent evaporation, dispense volume, and substrate condition.
-
-Commercial spin coaters can be expensive or inaccessible for student projects. The objective of this project is to build a compact, low-cost prototype using readily available electronics and fabricated mechanical parts. An ESP32 provides a flexible platform for controlling operating sequences and can support a display, buttons, speed feedback, and programmable recipes.
-
-A key design challenge is that the motor, ESC, shaft, chuck, and power supply must be selected as a system. High rotational speed makes shaft alignment, rotor balance, secure mounting, and containment especially important. The prototype therefore requires gradual testing and must not be operated at high speed until the shaft and chuck are mechanically secure and the assembly is guarded.
 
 ---
 
@@ -56,9 +57,9 @@ After spinning, a thin layer remains; its final properties depend on the materia
 
 ### 3.2 Electronic Control System
 
-The ESP32 acts as the main controller. It produces a servo-style control pulse for the ESC, which commutates the three-phase BLDC motor.
+The ESP32 is the main controller of the spin coater. It sends a servo-like PWM signal to the ESC, which switches the current through the three phases of the BLDC motor to spin it. The motor turns the shaft and chuck, which hold and rotate the substrate.
 
-The motor rotates the shaft and chuck. The power supply provides the required DC power, while a separate regulated supply or DC-DC converter provides the appropriate voltage for the ESP32 and its peripherals.
+A 12 V SMPS supplies power to the ESC and motor. A DC-DC buck converter steps this down to a lower, regulated voltage for the ESP32 and its peripherals, so the logic circuits stay stable while the motor draws heavy current.
 
 The major system components perform the following functions:
 
@@ -69,7 +70,7 @@ The major system components perform the following functions:
 | ESC                  | Controls the BLDC motor                                       |
 | SMPS                 | Supplies DC power to the system                               |
 | DC-DC Buck Converter | Provides regulated voltage for the controller and peripherals |
-| OLED Display         | Displays operating information (the rpm & its staus etc )                               |
+| OLED Display         | Displays operating information (the rpm & its status etc )                               |
 | 4×4 Matrix Keypad    | Allows user input and parameter selection                     |
 | IR Sensor            | Detects rotational speed for RPM feedback                     |
 
